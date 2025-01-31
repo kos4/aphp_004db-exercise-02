@@ -36,7 +36,9 @@ class Order extends ConnectDB
       id INT AUTO_INCREMENT PRIMARY KEY,
       shop_id INT,
       client_id INT,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      CONSTRAINT order_shop_fk FOREIGN KEY (shop_id) REFERENCES shop (id) ON DELETE CASCADE,
+      CONSTRAINT order_client_fk FOREIGN KEY (client_id) REFERENCES `client` (id) ON DELETE CASCADE
     )";
     return $this->pdo->query($sql);
   }

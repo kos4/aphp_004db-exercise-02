@@ -47,7 +47,9 @@ class OrderProduct extends ConnectDB
       order_id INT,
       product_id INT,
       price FLOAT DEFAULT 0,
-      quantity INT DEFAULT 0
+      quantity INT DEFAULT 0,
+      CONSTRAINT orderProduct_order_fk FOREIGN KEY (order_id) REFERENCES `order` (id) ON DELETE CASCADE,
+      CONSTRAINT orderProduct_product_fk FOREIGN KEY (product_id) REFERENCES `product` (id) ON DELETE CASCADE
     )";
     return $this->pdo->query($sql);
   }

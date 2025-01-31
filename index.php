@@ -12,13 +12,13 @@ $shop = new Shop();
 $shop->createTable();
 $shop->insertTestData();
 
-$product = new Product();
-$product->createTable();
-$product->insertTestData();
-
 $client = new Client();
 $client->createTable();
 $client->insertTestData();
+
+$product = new Product();
+$product->createTable();
+$product->insertTestData();
 
 $order = new Order();
 $order->createTable();
